@@ -23,4 +23,3 @@ clean:
 
 dist-clean:
 	rm -rf pkg src bin
-
