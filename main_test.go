@@ -58,13 +58,13 @@ func TestBasicRedirections(t *testing.T) {
 			})
 		})
 		Convey("When it receives a valid fake message", func() {
-			n.Publish("router.create", []byte(`{"service":"aaa","router_type":"fake"}`))
+			n.Publish("router.create", []byte(`{"service":"aaa","type":"fake"}`))
 			Convey("Then it should redirect it to a fake connector", func() {
 				So(wait(chfak), ShouldBeNil)
 			})
 		})
 		Convey("When it receives a valid vcloud message", func() {
-			n.Publish("router.create", []byte(`{"service":"aaa","router_type":"vcloud"}`))
+			n.Publish("router.create", []byte(`{"service":"aaa","type":"vcloud"}`))
 			Convey("Then it should redirect it to a fake connector", func() {
 				So(wait(chvcl), ShouldBeNil)
 			})
