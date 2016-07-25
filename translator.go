@@ -29,8 +29,8 @@ type builderEvent struct {
 type vcloudEvent struct {
 	Uuid               string `json:"_uuid"`
 	BatchID            string `json:"_batch_id"`
+	Type               string `json:"_type"`
 	Service            string `json:"service_id"`
-	Type               string `json:"type"`
 	RouterName         string `json:"router_name"`
 	RouterType         string `json:"router_type"`
 	RouterIP           string `json:"router_ip"`
@@ -56,6 +56,7 @@ func (t Translator) BuilderToConnector(j []byte) []byte {
 
 	output.Uuid = input.Uuid
 	output.BatchID = input.BatchID
+	output.Type = input.Type
 	output.RouterName = input.Name
 	output.Service = input.Service
 	output.RouterType = input.Type

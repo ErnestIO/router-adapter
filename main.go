@@ -50,8 +50,8 @@ func main() {
 
 	t := Translator{}
 	log.Println("Setting up routers")
-	o.TranslatedSubscription(&c, "router.create", "router_type", t)
-	o.TranslatedSubscription(&c, "router.delete", "router_type", t)
+	o.TranslatedSubscription(&c, "router.create", "_type", t)
+	o.TranslatedSubscription(&c, "router.delete", "_type", t)
 
 	runtime.Goexit()
 }
