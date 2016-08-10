@@ -54,7 +54,8 @@ func TestBasicRedirections(t *testing.T) {
 		Convey("When it receives an invalid fake message", func() {
 			n.Publish("router.create", []byte(`{"service":"aaa"}`))
 			Convey("Then it should redirect it to a fake connector", func() {
-				So(wait(cherr), ShouldBeNil)
+				e := wait(cherr)
+				So(e, ShouldNotBeNil)
 			})
 		})
 		Convey("When it receives a valid fake message", func() {
