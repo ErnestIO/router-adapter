@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"strconv"
 )
 
 type builderEvent struct {
@@ -44,6 +45,10 @@ type vcloudEvent struct {
 	VCloudURL          string `json:"vcloud_url"`
 	VseURL             string `json:"vse_url"`
 	Status             string `json:"status"`
+	Error              struct {
+		Code    int    `json:"code"`
+		Message string `json:"message"`
+	} `json:"error"`
 }
 
 type Translator struct{}
@@ -97,6 +102,8 @@ func (t Translator) ConnectorToBuilder(j []byte) []byte {
 	output.VCloudURL = input.VCloudURL
 	output.VseURL = input.VseURL
 	output.Status = input.Status
+	output.ErrorCode = strconv.Itoa(input.Error.Code)
+	output.ErrorMessage = input.Error.Message
 
 	body, _ := json.Marshal(output)
 	return body
