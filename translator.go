@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"log"
 	"strconv"
 )
 
@@ -84,7 +85,10 @@ func (t Translator) ConnectorToBuilder(j []byte) []byte {
 	var input vcloudEvent
 	var output builderEvent
 
-	json.Unmarshal(j, &input)
+	err := json.Unmarshal(j, &input)
+	if err != nil {
+		log.Println(err.Error())
+	}
 
 	output.Uuid = input.Uuid
 	output.BatchID = input.BatchID
@@ -105,6 +109,10 @@ func (t Translator) ConnectorToBuilder(j []byte) []byte {
 	output.ErrorCode = strconv.Itoa(input.Error.Code)
 	output.ErrorMessage = input.Error.Message
 
-	body, _ := json.Marshal(output)
+	body, err := json.Marshal(output)
+	if err != nil {
+		log.Println(err.Error())
+	}
+
 	return body
 }
