@@ -48,9 +48,10 @@ func main() {
 		ValidTypes: getConnectorTypes("routers"),
 	}
 
+	t := Translator{}
 	log.Println("Setting up routers")
-	o.StandardSubscription(&c, "router.create", "router_type")
-	o.StandardSubscription(&c, "router.delete", "router_type")
+	o.TranslatedSubscription(&c, "router.create", "_type", t)
+	o.TranslatedSubscription(&c, "router.delete", "_type", t)
 
 	runtime.Goexit()
 }
