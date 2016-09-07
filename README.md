@@ -4,8 +4,8 @@ Router Adapter gets input nats messages in order to create, update or delete rou
 
 ## Build status
 
-* master: [![CircleCI](https://circleci.com/gh/ErnestIO/router-adapter/tree/master.svg?style=svg)](https://circleci.com/gh/ErnestIO/router-adapter/tree/master)
-* develop: [![CircleCI](https://circleci.com/gh/ErnestIO/router-adapter/tree/develop.svg?style=svg)](https://circleci.com/gh/ErnestIO/router-adapter/tree/develop)
+* master: [![CircleCI](https://circleci.com/gh/ernestio/router-adapter/tree/master.svg?style=svg)](https://circleci.com/gh/ernestio/router-adapter/tree/master)
+* develop: [![CircleCI](https://circleci.com/gh/ernestio/router-adapter/tree/develop.svg?style=svg)](https://circleci.com/gh/ernestio/router-adapter/tree/develop)
 
 ## Installation
 
